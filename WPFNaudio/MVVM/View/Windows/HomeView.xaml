@@ -1,0 +1,62 @@
+﻿<UserControl x:Class="WPFNaudio.MVVM.View.Windows.HomeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPFNaudio.MVVM.View.Windows"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal">
+            <Image Source="/Assets/Logo.png" 
+                   Margin="75,20,0,0"
+                   Width="100" Height="100"/>
+            
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1.2*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0"
+                           Text="AYVA Audio"
+                           FontSize="32"
+                           Foreground="#FFFFFF"
+                           VerticalAlignment="Bottom"
+                           Style="{StaticResource MontserratMediumFont}"
+                           Margin="25,10,25,0"/>
+
+                <TextBlock Grid.Row="1"
+                           Text="Приложение для работы с аудиофайлами"
+                           FontSize="20"
+                           Foreground="#BBBBBB"
+                           Style="{StaticResource MontserratMediumFont}"
+                           Margin="25,28,0,0"
+                           VerticalAlignment="Top"/>
+            </Grid>
+        </StackPanel>
+
+        <Image Source="/Assets/Lines Home.png" Margin="-20,101,-32,58" Grid.RowSpan="3"
+               VerticalAlignment="Center"/>
+
+
+        <TextBlock Grid.Row="2"
+                   FontSize="22"
+                   Foreground="#9C9898"
+                   Style="{StaticResource MontserratMediumFont}"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Bottom"
+                   Margin="0,0,30,30">
+            Developed by 
+            <TextBlock Foreground="#D1D1D1">Kozenkov Vadim</TextBlock>
+            , IVTb-191
+        </TextBlock>
+
+    </Grid>
+</UserControl>
