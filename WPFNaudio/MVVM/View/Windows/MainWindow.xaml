@@ -161,11 +161,11 @@
                     </Button.Content>
                 </Button>
 
-                <Line 
-                          Stroke="#7B7B7B"
-                      HorizontalAlignment="Right" Grid.RowSpan="2" Width="228" X2="228" X1="228" Y1="1000"/>
-
-                
+                <Line Stroke="#7B7B7B"
+                      HorizontalAlignment="Right" 
+                      Grid.RowSpan="2" 
+                      Width="228" 
+                      X2="228" X1="228" Y1="1000"/>
 
                 <ContentControl Grid.Column="1" 
                                 Grid.Row="1"
