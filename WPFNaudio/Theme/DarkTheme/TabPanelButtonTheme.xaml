@@ -18,5 +18,5 @@
         </Setter>
         <Setter Property="Cursor" Value="Hand"/>
     </Style>
-    
+
 </ResourceDictionary>

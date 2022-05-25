@@ -11,9 +11,11 @@ namespace WPFNaudio.MVVM.ViewModels
     {
         public LambdaCommand HomeViewCommand { get; set; }
         public LambdaCommand ConvertViewCommand { get; set; }
+        public LambdaCommand EditViewCommand { get; set; }
 
         public HomeViewModel HomeVM { get; set; }
         public ConvertViewModel ConvertVM { get; set; }
+        public EditViewModel EditVM { get; set; }
 
         private string _Title = "AYVA Audio";
 
@@ -124,6 +126,7 @@ namespace WPFNaudio.MVVM.ViewModels
         {
             HomeVM = new HomeViewModel();
             ConvertVM = new ConvertViewModel();
+            EditVM = new EditViewModel();
 
             CurrentView = HomeVM;
 
@@ -135,6 +138,11 @@ namespace WPFNaudio.MVVM.ViewModels
             ConvertViewCommand = new LambdaCommand(o =>
             {
                 CurrentView = ConvertVM;
+            });
+
+            EditViewCommand = new LambdaCommand(o =>
+            {
+                CurrentView = EditVM;
             });
 
             GitHubLinkCommand = new LambdaCommand(OnGitHubLinkCommandExecuted, CanGitHubLinkCommandExecute);

@@ -107,9 +107,10 @@
                                  Command="{Binding ConvertViewCommand}"/>
 
                     <RadioButton Content="Редактирование"
-                             Height="50"
-                             FontSize="14"
-                             Style="{StaticResource EditMenuButtonDarkTheme}"/>
+                                 Height="50"
+                                 FontSize="14"
+                                 Style="{StaticResource EditMenuButtonDarkTheme}"
+                                 Command="{Binding EditViewCommand}"/>
 
                     <RadioButton Content="Объединение"
                              Height="50"

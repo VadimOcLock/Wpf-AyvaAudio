@@ -16,6 +16,7 @@
             </Setter.Value>
         </Setter>
     </Style>
+    
     <Style x:Key="Mp3Button" TargetType="Button">
         <Setter Property="Template">
             <Setter.Value>
@@ -29,4 +30,5 @@
             </Setter.Value>
         </Setter>
     </Style>
+
 </ResourceDictionary>

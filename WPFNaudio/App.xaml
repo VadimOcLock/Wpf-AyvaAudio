@@ -14,8 +14,9 @@
                 <ResourceDictionary Source="Theme/DarkTheme/MenuButtonTheme.xaml"/>
                 <ResourceDictionary Source="Theme/DarkTheme/TabPanelButtonTheme.xaml"/>
                 <ResourceDictionary Source="Theme/DarkTheme/ConvertUITheme.xaml"/>
-                <ResourceDictionary Source="Theme\Darktheme\ChangeThemeButtonTheme.xaml"/>
-                <materialDesign:BundledTheme BaseTheme="Light" PrimaryColor="DeepPurple" SecondaryColor="Lime" />
+                <ResourceDictionary Source="Theme/Darktheme/ChangeThemeButtonTheme.xaml"/>
+                <ResourceDictionary Source="Theme/Darktheme/EditButtonUITheme.xaml"/>
+                <materialDesign:BundledTheme BaseTheme="Light" PrimaryColor="Yellow" SecondaryColor="Lime" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
@@ -27,7 +28,9 @@
                 <view:ConvertView/>
             </DataTemplate>
 
-            
+            <DataTemplate DataType="{x:Type viewModel:EditViewModel}">
+                <view:EditView/>
+            </DataTemplate>
 
             <Style x:Key="MontserratMediumFont">
                 <Setter Property="TextElement.FontFamily" Value="\Fonts\#Montserrat Medium"/>
