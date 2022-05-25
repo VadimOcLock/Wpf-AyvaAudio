@@ -80,13 +80,13 @@
                         VerticalAlignment="Top"
                         Margin="26,5,0,0"
                         Width="400" 
-                        Value="1" 
+                        Value="{Binding VolumeValue}" 
                         Minimum="0"
-                        Maximum="2"
+                        Maximum="200"
                         Foreground="#FFFFDB4D"/>
 
                 <TextBlock Grid.Row="0" Grid.Column="1"
-                           Text="100"
+                           Text="{Binding VolumeValue}"
                            HorizontalAlignment="Left"
                            Style="{StaticResource MontserratMediumFont}"
                            Foreground="#FF969696"
@@ -99,7 +99,7 @@
                            Style="{StaticResource MontserratMediumFont}"
                            Foreground="#FF969696"
                            FontSize="18"
-                           Margin="43,0,0,0"/>
+                           Margin="57,0,0,0"/>
 
                 <TextBox Grid.Row="1" Grid.Column="1"
                          HorizontalAlignment="Left"
@@ -108,7 +108,9 @@
                          Width="45"
                          Foreground="White" 
                          BorderBrush="#89FFFFFF" 
-                         Cursor="Arrow" CaretBrush="#FFFFDB4D"/>
+                         Cursor="Arrow" 
+                         CaretBrush="#FFFFDB4D"
+                         Text="{Binding VolumeValue, UpdateSourceTrigger=PropertyChanged}"/>
             </Grid>
 
             <Button Grid.Row="2"

@@ -17,19 +17,19 @@ namespace WPFNaudio.MVVM.ViewModels
         public ConvertViewModel ConvertVM { get; set; }
         public EditViewModel EditVM { get; set; }
 
-        private string _Title = "AYVA Audio";
+        private string _title = "AYVA Audio";
 
         /// <summary>Заголовок окна</summary>
         public string Title
         {
-            get { return _Title; }
+            get { return _title; }
             set 
             {
                 //if (Equals(value, _Title)) return;
                 //_Title = value;
                 //OnPropertyChanged();
 
-                Set(ref _Title, value);
+                Set(ref _title, value);
             }
         }
 
