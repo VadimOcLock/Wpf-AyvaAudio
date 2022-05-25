@@ -105,7 +105,7 @@ namespace WPFNaudio.MVVM.ViewModels
             }
         }
 
-        private string gitHubUrl = "https://github.com/VadimOcLock";
+        private string gitHubUrl = "https://github.com/VadimOcLock/Wpf-AyvaAudio";
         public LambdaCommand GitHubLinkCommand { get; }
 
         private bool CanGitHubLinkCommandExecute(object p) => true;
