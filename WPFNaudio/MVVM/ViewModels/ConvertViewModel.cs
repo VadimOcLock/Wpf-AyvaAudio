@@ -12,10 +12,8 @@ namespace WPFNaudio.MVVM.ViewModels
         {
             get 
             {
-                return _openWavConvertWindowCommand ??
-                    (_openWavConvertWindowCommand = new LambdaCommand(obj =>
+                return _openWavConvertWindowCommand ??= new LambdaCommand(obj =>
                     {
-                        
                         var window = new WavConvertView();
                         var vm = new WavConvertViewModel();
                         vm.OpenFile();
@@ -24,7 +22,7 @@ namespace WPFNaudio.MVVM.ViewModels
                         if (window.ShowDialog() == true)
                         {
                         }
-                    }));
+                    });
             }
         }
 

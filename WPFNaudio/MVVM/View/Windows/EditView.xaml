@@ -131,6 +131,7 @@
                     Cursor="Hand"
                     FontFamily="Montserrat"
                     Style="{StaticResource MaterialDesignOutlinedLightButton}" 
+                    Command="{Binding VolumeEditCommand}"
                     Margin="20,8,0,0"
                     />
 

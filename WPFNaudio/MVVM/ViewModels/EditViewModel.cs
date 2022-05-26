@@ -1,5 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
+using WPFNaudio.Core;
+using WPFNaudio.MVVM.View.Windows;
 using WPFNaudio.MVVM.ViewModels.Base;
 
 namespace WPFNaudio.MVVM.ViewModels
@@ -17,17 +19,25 @@ namespace WPFNaudio.MVVM.ViewModels
             set
             {
                 if (value < 0)
-                {
                     Set(ref _volumeValue, 0);
-                }
                 else if (value > 200)
-                {
                     Set(ref _volumeValue, 200);
-                }
                 else
-                {
                     Set(ref _volumeValue, value);
-                }
+            }
+        }
+
+        public LambdaCommand VolumeEditCommand { get; }
+
+        private bool CanVolumeEditCommandExecute(object p) => true;
+        private void OnVolumeEditCommandExecuted(object p)
+        {
+            var window = new VolumeEditView();
+            var vm = new VolumeEditViewModel();
+
+            window.DataContext = vm;
+            if (window.ShowDialog() == true)
+            {
             }
         }
 
@@ -42,9 +52,7 @@ namespace WPFNaudio.MVVM.ViewModels
                 switch (name)
                 {
                     case "VolumeValue":
-                        if (VolumeValue == null)
-                            result = "Поле не может быть пустым";
-                        else if (VolumeValue < 0 || VolumeValue > 200)
+                        if (VolumeValue < 0 || VolumeValue > 200)
                             result = "Введите значение от 0 до 200";
                         break;
                 }
@@ -55,7 +63,7 @@ namespace WPFNaudio.MVVM.ViewModels
 
         public EditViewModel()
         {
-
+            VolumeEditCommand = new LambdaCommand(OnVolumeEditCommandExecuted, CanVolumeEditCommandExecute);
         }
     }
 }
