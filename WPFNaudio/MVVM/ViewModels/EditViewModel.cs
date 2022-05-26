@@ -9,7 +9,6 @@ namespace WPFNaudio.MVVM.ViewModels
     public class EditViewModel : ViewModel, IDataErrorInfo
     {
         private double _volumeValue = 1;
-
         public double VolumeValue
         {
             get
@@ -36,18 +35,15 @@ namespace WPFNaudio.MVVM.ViewModels
             var vm = new VolumeEditViewModel();
 
             window.DataContext = vm;
-            if (window.ShowDialog() == true)
-            {
-            }
+            if (window.ShowDialog() == true) { }
         }
 
         public string Error { get { return null; } }
-
         public string this[string name] 
         {
             get 
             {
-                string result = null;
+                string? result = null;
 
                 switch (name)
                 {

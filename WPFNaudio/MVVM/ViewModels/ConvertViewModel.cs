@@ -6,30 +6,23 @@ namespace WPFNaudio.MVVM.ViewModels
 {
     public class ConvertViewModel : ViewModel
     {
-        private LambdaCommand _openWavConvertWindowCommand;
+        public LambdaCommand OpenWavConvertWindowCommand { get; }
 
-        public LambdaCommand OpenWavConvertWindowCommand
+        private bool CanOpenWavConvertWindowCommandExecute(object p) => true;
+        private void OnOpenWavConvertWindowCommandExecuted(object p)
         {
-            get 
-            {
-                return _openWavConvertWindowCommand ??= new LambdaCommand(obj =>
-                    {
-                        var window = new WavConvertView();
-                        var vm = new WavConvertViewModel();
-                        vm.OpenFile();
+            var window = new WavConvertView();
+            var vm = new WavConvertViewModel();
 
-                        window.DataContext = vm;
-                        if (window.ShowDialog() == true)
-                        {
-                        }
-                    });
-            }
+            vm.OpenFileDialog();
+
+            window.DataContext = vm;
+            if (window.ShowDialog() == true) { }
         }
-
 
         public ConvertViewModel()
         {
-
+            OpenWavConvertWindowCommand = new LambdaCommand(OnOpenWavConvertWindowCommandExecuted, CanOpenWavConvertWindowCommandExecute);
         }
     }
 }

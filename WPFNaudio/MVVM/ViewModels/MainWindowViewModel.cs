@@ -9,104 +9,43 @@ namespace WPFNaudio.MVVM.ViewModels
 {
     public class MainWindowViewModel : ViewModel
     {
-        public LambdaCommand HomeViewCommand { get; set; }
-        public LambdaCommand ConvertViewCommand { get; set; }
-        public LambdaCommand EditViewCommand { get; set; }
+        private const string GITHUB_URL = "https://github.com/VadimOcLock/Wpf-AyvaAudio";
+        
+        public LambdaCommand HomeViewCommand { get; }
+        public LambdaCommand ConvertViewCommand { get; }
+        public LambdaCommand EditViewCommand { get; }
+        public LambdaCommand GitHubLinkCommand { get; }
 
-        public HomeViewModel HomeVM { get; set; }
-        public ConvertViewModel ConvertVM { get; set; }
-        public EditViewModel EditVM { get; set; }
-
-        private string _title = "AYVA Audio";
-
-        /// <summary>Заголовок окна</summary>
-        public string Title
-        {
-            get { return _title; }
-            set 
-            {
-                //if (Equals(value, _Title)) return;
-                //_Title = value;
-                //OnPropertyChanged();
-
-                Set(ref _title, value);
-            }
-        }
+        public LambdaCommand CloseWindowCommand { get; }
+        public LambdaCommand ShareWindowCommand { get; }
+        public LambdaCommand TurnWindowCommand { get; }
 
         private object _currentView;
-
         public object CurrentView
         {
-            get { return _currentView; }
-            set 
-            {
-                Set(ref _currentView, value);
-            }
+            get => _currentView;
+            set => Set(ref _currentView, value);
         }
 
-        private LambdaCommand _closeWindowCommand;
-
-        public LambdaCommand CloseWindowCommand
+        private bool CanCloseWindowCommandExecute(object p) => true;
+        private void OnCloseWindowCommandExecuted(object p)
         {
-            get 
-            {
-                return _closeWindowCommand ??
-                    (_closeWindowCommand = new LambdaCommand(obj =>
-                    {
-                        Window w = obj as Window;
-                        if (w != null)
-                        {
-                            w.Close();
-                        }
-                    }));
-            }
+            Application.Current.Shutdown();
         }
 
-        private LambdaCommand _shareWindowCommand;
-
-        public LambdaCommand ShareWindowCommand
+        private bool CanShareWindowCommandExecute(object p) => true;
+        private void OnShareWindowCommandExecuted(object p)
         {
-            get 
-            {
-                return _shareWindowCommand ??
-                    (_shareWindowCommand = new LambdaCommand(obj =>
-                    {
-                        Window w = obj as Window;
-                        if (w != null)
-                        {
-                            if (Application.Current.MainWindow.WindowState != WindowState.Maximized)
-                            {
-                                Application.Current.MainWindow.WindowState = WindowState.Maximized;
-                            }
-                            else
-                            {
-                                Application.Current.MainWindow.WindowState = WindowState.Normal;
-                            }
-                        }
-                    }));
-            }
+            Application.Current.MainWindow.WindowState = 
+                Application.Current.MainWindow.WindowState != WindowState.Maximized ?
+                WindowState.Maximized : WindowState.Normal;
         }
 
-        private LambdaCommand _turnWindowCommand;
-
-        public LambdaCommand TurnWindowCommand
+        private bool CanTurnWindowCommandExecute(object p) => true;
+        private void OnTurnWindowCommandExecuted(object p)
         {
-            get
-            {
-                return _turnWindowCommand ??
-                    (_turnWindowCommand = new LambdaCommand(obj =>
-                    {
-                        Window w = obj as Window;
-                        if (w != null)
-                        {
-                            Application.Current.MainWindow.WindowState = WindowState.Minimized;
-                        }
-                    }));
-            }
+            Application.Current.MainWindow.WindowState = WindowState.Minimized;
         }
-
-        private string gitHubUrl = "https://github.com/VadimOcLock/Wpf-AyvaAudio";
-        public LambdaCommand GitHubLinkCommand { get; }
 
         private bool CanGitHubLinkCommandExecute(object p) => true;
         private void OnGitHubLinkCommandExecuted(object p)
@@ -114,7 +53,7 @@ namespace WPFNaudio.MVVM.ViewModels
             try
             {
                 IWebDriver driver = new ChromeDriver();
-                driver.Navigate().GoToUrl(gitHubUrl);
+                driver.Navigate().GoToUrl(GITHUB_URL);
             }
             catch (Exception ex)
             {
@@ -124,9 +63,9 @@ namespace WPFNaudio.MVVM.ViewModels
 
         public MainWindowViewModel()
         {
-            HomeVM = new HomeViewModel();
-            ConvertVM = new ConvertViewModel();
-            EditVM = new EditViewModel();
+            var HomeVM = new HomeViewModel();
+            var ConvertVM = new ConvertViewModel();
+            var EditVM = new EditViewModel();
 
             CurrentView = HomeVM;
 
@@ -145,6 +84,9 @@ namespace WPFNaudio.MVVM.ViewModels
                 CurrentView = EditVM;
             });
 
+            CloseWindowCommand = new LambdaCommand(OnCloseWindowCommandExecuted, CanCloseWindowCommandExecute);
+            ShareWindowCommand = new LambdaCommand(OnShareWindowCommandExecuted, CanShareWindowCommandExecute);
+            TurnWindowCommand = new LambdaCommand(OnTurnWindowCommandExecuted, CanTurnWindowCommandExecute);
             GitHubLinkCommand = new LambdaCommand(OnGitHubLinkCommandExecuted, CanGitHubLinkCommandExecute);
         }
     }
