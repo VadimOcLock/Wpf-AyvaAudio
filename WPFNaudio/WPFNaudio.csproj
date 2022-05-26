@@ -12,11 +12,19 @@
     <None Remove="Assets\GitHub-Mark\PNG\GitHub-Mark-Light-32px.png" />
     <None Remove="Assets\Lines Home.png" />
     <None Remove="Assets\Logo.png" />
+    <None Remove="Assets\MP3.png" />
+    <None Remove="Assets\WAV.png" />
     <None Remove="Fonts\MontserratMedium.ttf" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="Assets\Icon.ico" />
+    <Content Include="Assets\MP3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\WAV.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>

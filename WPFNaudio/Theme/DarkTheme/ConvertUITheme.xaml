@@ -8,7 +8,7 @@
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
                         <Grid.Background>
-                            <ImageBrush ImageSource="C:\Users\Vadim\source\repos\WPFNaudio\WPFNaudio\Assets\WAV.png" 
+                            <ImageBrush ImageSource="pack://siteoforigin:,,,/Assets/WAV.png" 
                                         Stretch="Fill"/>
                         </Grid.Background>
                     </Grid>
@@ -23,7 +23,7 @@
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
                         <Grid.Background>
-                            <ImageBrush ImageSource="C:\Users\Vadim\source\repos\WPFNaudio\WPFNaudio\Assets\MP3.png"/>
+                            <ImageBrush ImageSource="pack://siteoforigin:,,,/Assets/MP3.png"/>
                         </Grid.Background>
                     </Grid>
                 </ControlTemplate>
