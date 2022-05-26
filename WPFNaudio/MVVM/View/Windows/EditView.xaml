@@ -9,6 +9,10 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
+    <UserControl.Resources>
+        
+    </UserControl.Resources>
+
     <StackPanel Margin="35,0,0,0">
         <TextBlock Text="Редактирование"
                    Style="{StaticResource MontserratMediumFont}"
@@ -101,16 +105,21 @@
                            FontSize="18"
                            Margin="57,0,0,0"/>
 
-                <TextBox Grid.Row="1" Grid.Column="1"
+                <TextBox x:Name="enterVolumeTextBox"
+                         Grid.Row="1" Grid.Column="1"
+                         
                          HorizontalAlignment="Left"
                          VerticalAlignment="Top"
                          Margin="10,0,0,0"
-                         Width="45"
+                         Width="50"
                          Foreground="White" 
                          BorderBrush="#89FFFFFF" 
                          Cursor="Arrow" 
                          CaretBrush="#FFFFDB4D"
-                         Text="{Binding VolumeValue, UpdateSourceTrigger=PropertyChanged}"/>
+                         Text="{Binding VolumeValue, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                         />
+
+                
             </Grid>
 
             <Button Grid.Row="2"
