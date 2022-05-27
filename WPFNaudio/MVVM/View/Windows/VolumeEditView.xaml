@@ -38,12 +38,13 @@
                                Foreground="White"
                                Style="{StaticResource MontserratMediumFont}"
                                FontSize="24"
-                               Margin="35,50,0,0"/>
-                        <TextBlock Text="bind_in_path"
+                               Margin="35,20,0,0"/>
+                        <TextBlock Text="{Binding InputFile}"
                                Foreground="#ABABAB"
                                Style="{StaticResource MontserratMediumFont}"
                                FontSize="12"
-                               Margin="35,20,0,0"/>
+                               Margin="35,20,15,0"
+                               TextWrapping="Wrap"/>
 
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="Множитель :"
@@ -52,11 +53,17 @@
                                FontSize="24"
                                Margin="35,30,0,0"/>
 
-                            <TextBlock Text="200%"
+                            <TextBlock Text="{Binding VolumeFactor}"
                                Foreground="#ABABAB"
                                Style="{StaticResource MontserratMediumFont}"
                                FontSize="20"
                                Margin="20,35,0,0"/>
+
+                            <TextBlock Text="%"
+                               Foreground="#ABABAB"
+                               Style="{StaticResource MontserratMediumFont}"
+                               FontSize="20"
+                               Margin="5,35,0,0"/>
                         </StackPanel>
 
                         <TextBlock Text="Файл WAV-формата"
@@ -64,21 +71,26 @@
                                Style="{StaticResource MontserratMediumFont}"
                                FontSize="24"
                                Margin="35,30,0,0"/>
-                        
-                        <TextBlock Text="bind_out_path"
+
+                        <TextBlock Text="{Binding OutputFile}"
                                Foreground="#ABABAB"
                                Style="{StaticResource MontserratMediumFont}"
                                FontSize="12"
-                               Margin="35,20,0,0"/>
+                               Margin="35,20,15,0"
+                               TextWrapping="Wrap"/>
 
+                    </StackPanel>
+
+                    <Canvas>
                         <TextBlock Text="Успешно"
                                HorizontalAlignment="Right"
+                               
                                Foreground="#73BB7E"
                                Style="{StaticResource MontserratMediumFont}"
                                FontSize="28"
-                               Margin="0,20,45,0"/>
-
-                    </StackPanel>
+                               Canvas.Top="310"
+                                   Canvas.Right="47"/>
+                    </Canvas>
                 </Grid>
 
             </Border>

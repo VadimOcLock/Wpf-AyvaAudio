@@ -118,8 +118,6 @@
                          CaretBrush="#FFFFDB4D"
                          Text="{Binding VolumeValue, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                          />
-
-                
             </Grid>
 
             <Button Grid.Row="2"

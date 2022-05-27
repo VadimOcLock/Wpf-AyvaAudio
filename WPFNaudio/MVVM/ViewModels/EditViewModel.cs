@@ -34,6 +34,8 @@ namespace WPFNaudio.MVVM.ViewModels
             var window = new VolumeEditView();
             var vm = new VolumeEditViewModel();
 
+            vm.VolumeEditFile(VolumeValue);
+
             window.DataContext = vm;
             if (window.ShowDialog() == true) { }
         }

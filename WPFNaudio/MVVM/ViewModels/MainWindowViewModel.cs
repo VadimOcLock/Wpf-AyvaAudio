@@ -27,6 +27,35 @@ namespace WPFNaudio.MVVM.ViewModels
             set => Set(ref _currentView, value);
         }
 
+        public MainWindowViewModel()
+        {
+            var HomeVM = new HomeViewModel();
+            var ConvertVM = new ConvertViewModel();
+            var EditVM = new EditViewModel();
+
+            CurrentView = HomeVM;
+
+            HomeViewCommand = new LambdaCommand(o =>
+            {
+                CurrentView = HomeVM;
+            });
+
+            ConvertViewCommand = new LambdaCommand(o =>
+            {
+                CurrentView = ConvertVM;
+            });
+
+            EditViewCommand = new LambdaCommand(o =>
+            {
+                CurrentView = EditVM;
+            });
+
+            CloseWindowCommand = new LambdaCommand(OnCloseWindowCommandExecuted, CanCloseWindowCommandExecute);
+            ShareWindowCommand = new LambdaCommand(OnShareWindowCommandExecuted, CanShareWindowCommandExecute);
+            TurnWindowCommand = new LambdaCommand(OnTurnWindowCommandExecuted, CanTurnWindowCommandExecute);
+            GitHubLinkCommand = new LambdaCommand(OnGitHubLinkCommandExecuted, CanGitHubLinkCommandExecute);
+        }
+
         private bool CanCloseWindowCommandExecute(object p) => true;
         private void OnCloseWindowCommandExecuted(object p)
         {
@@ -59,35 +88,6 @@ namespace WPFNaudio.MVVM.ViewModels
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-
-        public MainWindowViewModel()
-        {
-            var HomeVM = new HomeViewModel();
-            var ConvertVM = new ConvertViewModel();
-            var EditVM = new EditViewModel();
-
-            CurrentView = HomeVM;
-
-            HomeViewCommand = new LambdaCommand(o =>
-            {
-                CurrentView = HomeVM;
-            });
-
-            ConvertViewCommand = new LambdaCommand(o =>
-            {
-                CurrentView = ConvertVM;
-            });
-
-            EditViewCommand = new LambdaCommand(o =>
-            {
-                CurrentView = EditVM;
-            });
-
-            CloseWindowCommand = new LambdaCommand(OnCloseWindowCommandExecuted, CanCloseWindowCommandExecute);
-            ShareWindowCommand = new LambdaCommand(OnShareWindowCommandExecuted, CanShareWindowCommandExecute);
-            TurnWindowCommand = new LambdaCommand(OnTurnWindowCommandExecuted, CanTurnWindowCommandExecute);
-            GitHubLinkCommand = new LambdaCommand(OnGitHubLinkCommandExecuted, CanGitHubLinkCommandExecute);
         }
     }
 }
