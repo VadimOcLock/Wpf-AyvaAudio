@@ -9,19 +9,14 @@ namespace WPFNaudio.MVVM.ViewModels
 {
     public class WavConvertViewModel : ViewModel
     {
+        private string _wavConvertResult = "Ошибка";
+        public string WavConvertResult { get => _wavConvertResult; }
+
         private string _inputFile = "ERROR_PATH";
-        public string InputFile
-        {
-            get => _inputFile; 
-            set => Set(ref _inputFile, value);
-        }
+        public string InputFile { get => _inputFile; }
 
         private string _outputFile = "ERROR_PATH";
-        public string OutputFile
-        {
-            get => _outputFile;
-            set => Set(ref _outputFile, value);
-        }
+        public string OutputFile { get => _outputFile; }
 
         public LambdaCommand CloseWindowCommand { get; }
 
@@ -41,13 +36,15 @@ namespace WPFNaudio.MVVM.ViewModels
 
             if (openFileDialog.ShowDialog() == true)
             {
-                InputFile = openFileDialog.FileName;
-                OutputFile = Path.GetDirectoryName(_inputFile) + @"\" + Path.GetFileNameWithoutExtension(_inputFile) + "_converted.wav";
+                _inputFile = openFileDialog.FileName;
+                _outputFile = Path.GetDirectoryName(_inputFile) + @"\" + Path.GetFileNameWithoutExtension(_inputFile) + "_converted.wav";
 
                 using (var fileReader = new Mp3FileReader(_inputFile))
                 {
                     WaveFileWriter.CreateWaveFile(_outputFile, fileReader);
                 }
+
+                _wavConvertResult = "Успешно";
             }
         }
         public WavConvertViewModel()

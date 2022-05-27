@@ -40,12 +40,13 @@
                                Foreground="White"
                                Style="{StaticResource MontserratMediumFont}"
                                FontSize="24"
-                               Margin="35,50,0,0"/>
+                               Margin="35,20,0,0"/>
                     <TextBlock Text="{Binding InputFile}"
                                Foreground="#ABABAB"
                                Style="{StaticResource MontserratMediumFont}"
                                FontSize="12"
-                               Margin="35,20,0,0"/>
+                               Margin="35,20,15,0"
+                               TextWrapping="Wrap"/>
 
                     <TextBlock Text="Файл WAV-формата"
                                Foreground="White"
@@ -56,16 +57,20 @@
                                Foreground="#ABABAB"
                                Style="{StaticResource MontserratMediumFont}"
                                FontSize="12"
-                               Margin="35,20,0,0"/>
-
-                    <TextBlock Text="Успешно"
-                               HorizontalAlignment="Right"
-                               Foreground="#73BB7E"
-                               Style="{StaticResource MontserratMediumFont}"
-                               FontSize="28"
-                               Margin="0,50,45,0"/>
+                               Margin="35,20,15,0"
+                               TextWrapping="Wrap"/>
 
                 </StackPanel>
+
+                <Canvas>
+                    <TextBlock Text="{Binding WavConvertResult}"
+                               HorizontalAlignment="Right"
+                               Foreground="#D78A44"
+                               Style="{StaticResource MontserratMediumFont}"
+                               FontSize="28"
+                               Canvas.Top="310"
+                               Canvas.Right="47"/>
+                </Canvas>
             </Grid>
 
         </Border>

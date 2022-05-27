@@ -82,14 +82,13 @@
                     </StackPanel>
 
                     <Canvas>
-                        <TextBlock Text="Успешно"
+                        <TextBlock Text="{Binding ResultVolumeEdit}"
                                HorizontalAlignment="Right"
-                               
-                               Foreground="#73BB7E"
+                               Foreground="#D78A44"
                                Style="{StaticResource MontserratMediumFont}"
                                FontSize="28"
                                Canvas.Top="310"
-                                   Canvas.Right="47"/>
+                               Canvas.Right="47"/>
                     </Canvas>
                 </Grid>
 

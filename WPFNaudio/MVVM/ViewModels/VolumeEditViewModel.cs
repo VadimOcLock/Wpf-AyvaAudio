@@ -16,26 +16,17 @@ namespace WPFNaudio.MVVM.ViewModels
     {
         public LambdaCommand CloseWindowCommand { get; }
 
+        private string _resultVolumeEdit = "Ошибка";
+        public string ResultVolumeEdit { get => _resultVolumeEdit; }
+
         private string _inputFile = "ERROR_PATH";
-        public string InputFile
-        {
-            get => _inputFile;
-            set => Set(ref _inputFile, value);
-        }
+        public string InputFile { get => _inputFile; }
 
         private string _outputFile = "ERROR_PATH";
-        public string OutputFile
-        {
-            get => _outputFile;
-            set => Set(ref _outputFile, value);
-        }
+        public string OutputFile { get => _outputFile; }
 
         private double _volumeFactor = 0;
-        public double VolumeFactor
-        {
-            get => _volumeFactor;
-            set => Set(ref _volumeFactor, value);
-        }
+        public double VolumeFactor { get => _volumeFactor; }
 
         public VolumeEditViewModel()
         {
@@ -44,7 +35,7 @@ namespace WPFNaudio.MVVM.ViewModels
 
         public void VolumeEditFile(double volumeFactor)
         {
-            VolumeFactor = volumeFactor;
+            _volumeFactor = volumeFactor;
 
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Wave File (*.wav)|*.wav";
@@ -52,8 +43,8 @@ namespace WPFNaudio.MVVM.ViewModels
 
             if (openFileDialog.ShowDialog() == true)
             {
-                InputFile = openFileDialog.FileName;
-                OutputFile = Path.GetDirectoryName(_inputFile) + @"\" + Path.GetFileNameWithoutExtension(_inputFile) + "_volumeChanged.wav";
+                _inputFile = openFileDialog.FileName;
+                _outputFile = Path.GetDirectoryName(_inputFile) + @"\" + Path.GetFileNameWithoutExtension(_inputFile) + "_volumeChanged.wav";
 
                 using (WaveFileReader waveFileReader = new WaveFileReader(_inputFile))
                 {
@@ -77,6 +68,8 @@ namespace WPFNaudio.MVVM.ViewModels
                     WaveFileWriter waveFileWriter = new WaveFileWriter(_outputFile, waveFormat);
                     waveFileWriter.WriteSamples(shortBuffer, 0, shortBuffer.Length);
                     waveFileWriter.Close();
+
+                    _resultVolumeEdit = "Успешно";
                 }
             }
         }
