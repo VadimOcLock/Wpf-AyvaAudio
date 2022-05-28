@@ -105,8 +105,7 @@
                            FontSize="18"
                            Margin="57,0,0,0"/>
 
-                <TextBox x:Name="enterVolumeTextBox"
-                         Grid.Row="1" Grid.Column="1"
+                <TextBox Grid.Row="1" Grid.Column="1"
                          
                          HorizontalAlignment="Left"
                          VerticalAlignment="Top"
@@ -138,6 +137,84 @@
                       Grid.RowSpan="3" 
                       Width="22" 
                       X2="0" X1="0" Y1="150" Margin="0,33,0,10" StrokeThickness="2"/>
+
+        </Grid>
+
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Обрезка WAV-файла"
+                   Style="{StaticResource MontserratMediumFont}"
+                   Foreground="#FF969696"
+                   FontSize="18"
+                   Margin="20,30,0,0"
+                   Grid.Row="0"/>
+
+            <Grid Grid.Row="1">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="150"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0"
+                    Orientation="Horizontal">
+
+                    <TextBlock Text="С"
+                               Style="{StaticResource MontserratMediumFont}"
+                               Foreground="#FF969696"
+                               FontSize="18"
+                               Margin="20,20,0,0"/>
+
+                    <TextBox Width="50"
+                             VerticalAlignment="Bottom"
+                             Margin="10,0,0,20"
+                             Foreground="White" 
+                             BorderBrush="#89FFFFFF" Cursor="Arrow"/>
+
+                </StackPanel>
+
+                <StackPanel Grid.Column="1"
+                    Orientation="Horizontal">
+
+                    <TextBlock Text="По"
+                               Style="{StaticResource MontserratMediumFont}"
+                               Foreground="#FF969696"
+                               FontSize="18"
+                               Margin="20,20,0,0"/>
+
+                    <TextBox Width="50"
+                             Margin="10,0,0,20"
+                             VerticalAlignment="Bottom"
+                             Foreground="White" 
+                             BorderBrush="#89FFFFFF" Cursor="Arrow"/>
+
+                </StackPanel>
+            </Grid>
+
+            <Button Grid.Row="2"
+                    Content="Выбрать файл"
+                    Foreground="#FF969696"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    MinWidth="250" MinHeight="40" 
+                    Cursor="Hand"
+                    FontFamily="Montserrat"
+                    Style="{StaticResource MaterialDesignOutlinedLightButton}" 
+                    Command="{Binding VolumeEditCommand}"
+                    Margin="20,0,0,0"
+                    />
+
+            <Line Stroke="#FFFFDB4D"
+                      HorizontalAlignment="Left" 
+                      Grid.RowSpan="3" 
+                      Width="22" 
+                      X2="0" X1="0" Y1="125" Margin="0,33,0,10" StrokeThickness="2"/>
 
         </Grid>
 
