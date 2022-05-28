@@ -6,15 +6,12 @@ using WPFNaudio.MVVM.ViewModels.Base;
 
 namespace WPFNaudio.MVVM.ViewModels
 {
-    public class EditViewModel : ViewModel, IDataErrorInfo
+    public class EditViewModel : ViewModel
     {
         private double _volumeValue = 1;
         public double VolumeValue
         {
-            get
-            {
-                return Math.Round(_volumeValue,1);
-            }
+            get => Math.Round(_volumeValue, 1);
             set
             {
                 if (value < 0)
@@ -26,7 +23,36 @@ namespace WPFNaudio.MVVM.ViewModels
             }
         }
 
+        private int _cutStartTiming = 0;
+
+        public int CutStartTiming
+        {
+            get => _cutStartTiming; 
+            set 
+            {
+                if (value < 0)
+                    Set(ref _cutStartTiming, 0);
+                else
+                    Set(ref _cutStartTiming, value);
+            }
+        }
+
+        private int _cutEndTiming = 0;
+
+        public int CutEndTiming
+        {
+            get => _cutEndTiming;
+            set
+            {
+                if (value < CutStartTiming)
+                    Set(ref _cutEndTiming, CutStartTiming);
+                else
+                    Set(ref _cutEndTiming, value);
+            }
+        }
+
         public LambdaCommand VolumeEditCommand { get; }
+        public LambdaCommand CutWavFileCommand { get; }
 
         private bool CanVolumeEditCommandExecute(object p) => true;
         private void OnVolumeEditCommandExecuted(object p)
@@ -40,28 +66,22 @@ namespace WPFNaudio.MVVM.ViewModels
             if (window.ShowDialog() == true) { }
         }
 
-        public string Error { get { return null; } }
-        public string this[string name] 
+        private bool CanCutWavFileCommandExecute(object p) => true;
+        private void OnCutWavFileCommandExecuted(object p)
         {
-            get 
-            {
-                string? result = null;
+            var window = new CutWavFileView();
+            var vm = new CutWavFileViewModel();
 
-                switch (name)
-                {
-                    case "VolumeValue":
-                        if (VolumeValue < 0 || VolumeValue > 200)
-                            result = "Введите значение от 0 до 200";
-                        break;
-                }
+            vm.CutWavFile(CutStartTiming, CutEndTiming);
 
-                return result;
-            }
+            window.DataContext = vm;
+            if (window.ShowDialog() == true) { }
         }
 
         public EditViewModel()
         {
             VolumeEditCommand = new LambdaCommand(OnVolumeEditCommandExecuted, CanVolumeEditCommandExecute);
+            CutWavFileCommand = new LambdaCommand(OnCutWavFileCommandExecuted, CanCutWavFileCommandExecute);
         }
     }
 }

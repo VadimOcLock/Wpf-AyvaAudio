@@ -53,4 +53,17 @@
     </Resource>
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="MVVM\View\Windows\CutWavFileView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="MVVM\View\Windows\CutWavFileView.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
 </Project>

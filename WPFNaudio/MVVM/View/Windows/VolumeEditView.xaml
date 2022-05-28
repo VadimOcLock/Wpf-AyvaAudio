@@ -34,7 +34,7 @@
                         HorizontalAlignment="Right"/>
 
                     <StackPanel Grid.Row="1">
-                        <TextBlock Text="Исходный файл в MP3-формате"
+                        <TextBlock Text="Исходный файл в WAV-формате"
                                Foreground="White"
                                Style="{StaticResource MontserratMediumFont}"
                                FontSize="24"

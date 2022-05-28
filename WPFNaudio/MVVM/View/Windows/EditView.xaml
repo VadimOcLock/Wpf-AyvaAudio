@@ -16,9 +16,15 @@
     <Grid>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="500"/>
+            <ColumnDefinition Width="580"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+
+        <Image Source="/Assets/Edit lines.png"
+               HorizontalAlignment="Right" VerticalAlignment="Bottom"
+               Margin="0,0,-43,-10" 
+               MinHeight="443" MinWidth="470" 
+               Grid.ColumnSpan="2" />
 
         <StackPanel Margin="35,0,0,0" Grid.Column="0">
             <TextBlock Text="Редактирование"
@@ -179,10 +185,12 @@
                                Margin="20,20,0,0"/>
 
                         <TextBox Width="50"
-                             VerticalAlignment="Bottom"
-                             Margin="10,0,0,20"
-                             Foreground="White" 
-                             BorderBrush="#89FFFFFF" Cursor="Arrow"/>
+                                 Text="{Binding CutStartTiming}"
+                                 VerticalAlignment="Bottom"
+                                 TextAlignment="Center"
+                                 Margin="10,0,0,20"
+                                 Foreground="White" 
+                                 BorderBrush="#89FFFFFF" Cursor="Arrow"/>
 
                     </StackPanel>
 
@@ -196,10 +204,12 @@
                                Margin="20,20,0,0"/>
 
                         <TextBox Width="50"
-                             Margin="10,0,0,20"
-                             VerticalAlignment="Bottom"
-                             Foreground="White" 
-                             BorderBrush="#89FFFFFF" Cursor="Arrow"/>
+                                 Text="{Binding CutEndTiming}"
+                                 Margin="10,0,0,20"
+                                 VerticalAlignment="Bottom"
+                                 TextAlignment="Center"
+                                 Foreground="White" 
+                                 BorderBrush="#89FFFFFF" Cursor="Arrow"/>
 
                     </StackPanel>
                 </Grid>
@@ -213,7 +223,7 @@
                     Cursor="Hand"
                     FontFamily="Montserrat"
                     Style="{StaticResource MaterialDesignOutlinedLightButton}" 
-                    Command="{Binding VolumeEditCommand}"
+                    Command="{Binding CutWavFileCommand}"
                     Margin="20,0,0,0"
                     />
 
@@ -228,12 +238,6 @@
 
 
         </StackPanel>
-
-        <Image Source="/Assets/Edit lines.png"
-               HorizontalAlignment="Right" VerticalAlignment="Bottom"
-               Margin="0,0,-38,-10" 
-               MinHeight="443" MinWidth="470" 
-               Grid.ColumnSpan="2"/>
 
     </Grid>
 
