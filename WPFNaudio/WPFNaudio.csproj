@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\Edit lines.png" />
     <None Remove="Assets\GitHub-Mark\PNG\GitHub-Mark-Light-32px.png" />
     <None Remove="Assets\Lines Home.png" />
     <None Remove="Assets\Logo.png" />
@@ -41,6 +42,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Assets\Edit lines.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Assets\GitHub-Mark\PNG\GitHub-Mark-Light-32px.png" />
     <Resource Include="Assets\Lines Home.png" />
     <Resource Include="Assets\Logo.png" />

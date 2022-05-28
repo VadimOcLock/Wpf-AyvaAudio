@@ -10,52 +10,59 @@
              d:DesignHeight="450" d:DesignWidth="800">
 
     <UserControl.Resources>
-        
+
     </UserControl.Resources>
 
-    <StackPanel Margin="35,0,0,0">
-        <TextBlock Text="Редактирование"
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="500"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Margin="35,0,0,0" Grid.Column="0">
+            <TextBlock Text="Редактирование"
                    Style="{StaticResource MontserratMediumFont}"
                    Foreground="White"
                    FontSize="35"
                    Margin="10,0,0,0"/>
 
-        <Line X1="0" Y1="10" X2="2000" Y2="10" 
+            <Line X1="0" Y1="10" X2="2000" Y2="10" 
               Stroke="#7B7B7B"
               Margin="10,0,38,0"/>
 
-        <TextBlock Text="Работа с файлами WAV-формата"
+            <TextBlock Text="Работа с файлами WAV-формата"
                    Style="{StaticResource MontserratMediumFont}"
                    Foreground="#B1B1B1"
                    FontSize="18"
                    Margin="10,10,0,0"/>
 
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
 
-            <TextBlock Text="Изменение громкости WAV-файла"
+                <TextBlock Text="Изменение громкости WAV-файла"
                    Style="{StaticResource MontserratMediumFont}"
-                   Foreground="#FF969696"
+                   Foreground="#DBDBDB"
                    FontSize="18"
                    Margin="20,30,0,0"
                    Grid.Row="0"/>
 
-            <Grid Grid.Row="1">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="25"/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
 
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="450"/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="450"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
 
-                <TextBlock Text="0x"
+                    <TextBlock Text="0x"
                            HorizontalAlignment="Left"
                            Style="{StaticResource MontserratMediumFont}"
                            Foreground="#FF969696"
@@ -63,7 +70,7 @@
                            Margin="24,0,0,0"
                            Grid.Row="0" Grid.Column="0"/>
 
-                <TextBlock Text="1x"
+                    <TextBlock Text="1x"
                            HorizontalAlignment="Center"
                            Style="{StaticResource MontserratMediumFont}"
                            Foreground="#FF969696"
@@ -71,7 +78,7 @@
                            Margin="19,0,19,0"
                            Grid.Row="0" Grid.Column="0"/>
 
-                <TextBlock Text="2x"
+                    <TextBlock Text="2x"
                            HorizontalAlignment="Right"
                            Style="{StaticResource MontserratMediumFont}"
                            Foreground="#FF969696"
@@ -79,7 +86,7 @@
                            Margin="0,0,24,0"
                            Grid.Row="0" Grid.Column="0"/>
 
-                <Slider Grid.Row="1" Grid.Column="0"
+                    <Slider Grid.Row="1" Grid.Column="0"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top"
                         Margin="26,5,0,0"
@@ -89,7 +96,7 @@
                         Maximum="200"
                         Foreground="#FFFFDB4D"/>
 
-                <TextBlock Grid.Row="0" Grid.Column="1"
+                    <TextBlock Grid.Row="0" Grid.Column="1"
                            Text="{Binding VolumeValue}"
                            HorizontalAlignment="Left"
                            Style="{StaticResource MontserratMediumFont}"
@@ -97,7 +104,7 @@
                            FontSize="18"
                            Margin="10,0,0,0"/>
 
-                <TextBlock Grid.Row="0" Grid.Column="1"
+                    <TextBlock Grid.Row="0" Grid.Column="1"
                            Text="%"
                            HorizontalAlignment="Left"
                            Style="{StaticResource MontserratMediumFont}"
@@ -105,7 +112,7 @@
                            FontSize="18"
                            Margin="57,0,0,0"/>
 
-                <TextBox Grid.Row="1" Grid.Column="1"
+                    <TextBox Grid.Row="1" Grid.Column="1"
                          
                          HorizontalAlignment="Left"
                          VerticalAlignment="Top"
@@ -117,9 +124,9 @@
                          CaretBrush="#FFFFDB4D"
                          Text="{Binding VolumeValue, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                          />
-            </Grid>
+                </Grid>
 
-            <Button Grid.Row="2"
+                <Button Grid.Row="2"
                     Content="Выбрать файл"
                     Foreground="#FF969696"
                     HorizontalAlignment="Left"
@@ -132,72 +139,72 @@
                     Margin="20,8,0,0"
                     />
 
-            <Line Stroke="#FFFFDB4D"
+                <Line Stroke="#FFFFDB4D"
                       HorizontalAlignment="Left" 
                       Grid.RowSpan="3" 
                       Width="22" 
                       X2="0" X1="0" Y1="150" Margin="0,33,0,10" StrokeThickness="2"/>
 
-        </Grid>
+            </Grid>
 
 
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
 
-            <TextBlock Text="Обрезка WAV-файла"
+                <TextBlock Text="Обрезка WAV-файла"
                    Style="{StaticResource MontserratMediumFont}"
-                   Foreground="#FF969696"
+                   Foreground="#DBDBDB"
                    FontSize="18"
                    Margin="20,30,0,0"
                    Grid.Row="0"/>
 
-            <Grid Grid.Row="1">
+                <Grid Grid.Row="1">
 
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="150"/>
-                    <ColumnDefinition Width="150"/>
-                </Grid.ColumnDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="150"/>
+                    </Grid.ColumnDefinitions>
 
-                <StackPanel Grid.Column="0"
+                    <StackPanel Grid.Column="0"
                     Orientation="Horizontal">
 
-                    <TextBlock Text="С"
+                        <TextBlock Text="С"
                                Style="{StaticResource MontserratMediumFont}"
                                Foreground="#FF969696"
                                FontSize="18"
                                Margin="20,20,0,0"/>
 
-                    <TextBox Width="50"
+                        <TextBox Width="50"
                              VerticalAlignment="Bottom"
                              Margin="10,0,0,20"
                              Foreground="White" 
                              BorderBrush="#89FFFFFF" Cursor="Arrow"/>
 
-                </StackPanel>
+                    </StackPanel>
 
-                <StackPanel Grid.Column="1"
+                    <StackPanel Grid.Column="1"
                     Orientation="Horizontal">
 
-                    <TextBlock Text="По"
+                        <TextBlock Text="По"
                                Style="{StaticResource MontserratMediumFont}"
                                Foreground="#FF969696"
                                FontSize="18"
                                Margin="20,20,0,0"/>
 
-                    <TextBox Width="50"
+                        <TextBox Width="50"
                              Margin="10,0,0,20"
                              VerticalAlignment="Bottom"
                              Foreground="White" 
                              BorderBrush="#89FFFFFF" Cursor="Arrow"/>
 
-                </StackPanel>
-            </Grid>
+                    </StackPanel>
+                </Grid>
 
-            <Button Grid.Row="2"
+                <Button Grid.Row="2"
                     Content="Выбрать файл"
                     Foreground="#FF969696"
                     HorizontalAlignment="Left"
@@ -210,13 +217,24 @@
                     Margin="20,0,0,0"
                     />
 
-            <Line Stroke="#FFFFDB4D"
+                <Line Stroke="#FFFFDB4D"
                       HorizontalAlignment="Left" 
                       Grid.RowSpan="3" 
                       Width="22" 
                       X2="0" X1="0" Y1="125" Margin="0,33,0,10" StrokeThickness="2"/>
 
-        </Grid>
+            </Grid>
 
-    </StackPanel>
+
+
+        </StackPanel>
+
+        <Image Source="/Assets/Edit lines.png"
+               HorizontalAlignment="Right" VerticalAlignment="Bottom"
+               Margin="0,0,-38,-10" 
+               MinHeight="443" MinWidth="470" 
+               Grid.ColumnSpan="2"/>
+
+    </Grid>
+
 </UserControl>
