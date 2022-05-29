@@ -111,9 +111,10 @@
                                  Command="{Binding EditViewCommand}"/>
 
                     <RadioButton Content="Объединение"
-                             Height="50"
-                             FontSize="14"
-                             Style="{StaticResource MergeMenuButtonDarkTheme}"/>
+                                 Height="50"
+                                 FontSize="14"
+                                 Style="{StaticResource MergeMenuButtonDarkTheme}"
+                                 Command="{Binding MergerViewCommand}"/>
                     <Grid>
                         <Line X1="0" Y1="10" X2="2000" Y2="10" 
                           Stroke="#7B7B7B"

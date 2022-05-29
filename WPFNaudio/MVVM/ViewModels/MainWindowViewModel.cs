@@ -14,6 +14,7 @@ namespace WPFNaudio.MVVM.ViewModels
         public LambdaCommand HomeViewCommand { get; }
         public LambdaCommand ConvertViewCommand { get; }
         public LambdaCommand EditViewCommand { get; }
+        public LambdaCommand MergerViewCommand { get; }
         public LambdaCommand GitHubLinkCommand { get; }
 
         public LambdaCommand CloseWindowCommand { get; }
@@ -32,6 +33,7 @@ namespace WPFNaudio.MVVM.ViewModels
             var HomeVM = new HomeViewModel();
             var ConvertVM = new ConvertViewModel();
             var EditVM = new EditViewModel();
+            var MergerVM = new MergerViewModel();
 
             CurrentView = HomeVM;
 
@@ -48,6 +50,11 @@ namespace WPFNaudio.MVVM.ViewModels
             EditViewCommand = new LambdaCommand(o =>
             {
                 CurrentView = EditVM;
+            });
+
+            MergerViewCommand = new LambdaCommand(o =>
+            {
+                CurrentView = MergerVM;
             });
 
             CloseWindowCommand = new LambdaCommand(OnCloseWindowCommandExecuted, CanCloseWindowCommandExecute);
