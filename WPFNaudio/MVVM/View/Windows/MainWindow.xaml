@@ -90,9 +90,7 @@
                 <StackPanel Grid.Row="1" Grid.Column="0"
                             Margin="0,10,0,0">
 
-
-
-                    <RadioButton Content="Home"
+                    <RadioButton Content="Информация"
                                  Height="50"
                                  FontSize="14"
                                  Style="{StaticResource HomeMenuButtonDarkTheme}"

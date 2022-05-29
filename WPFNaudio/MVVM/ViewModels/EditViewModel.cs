@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
 using WPFNaudio.Core;
 using WPFNaudio.MVVM.View.Windows;
 using WPFNaudio.MVVM.ViewModels.Base;

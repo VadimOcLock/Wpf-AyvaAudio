@@ -1,11 +1,7 @@
 ﻿using Microsoft.Win32;
 using NAudio.Wave;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using WPFNaudio.Core;
 using WPFNaudio.MVVM.ViewModels.Base;
@@ -39,8 +35,8 @@ namespace WPFNaudio.MVVM.ViewModels
         private void OnCloseWindowCommandExecuted(object p)
         {
             Window? w = p as Window;
-            if (w != null)
-                w.Close();
+            if (w != null) 
+                w.Close(); 
         }
 
         public void CutWavFile(int cutStartTiming , int cutEndTiming)
@@ -96,9 +92,7 @@ namespace WPFNaudio.MVVM.ViewModels
                     int bytesRead = Math.Min(bytesRequired, buff.Length);
                     bytesRead = fileReader.Read(buff, 0, bytesRead);
                     if (bytesRead > 0)
-                    {
                         fileWriter.WriteData(buff, 0, bytesRead);
-                    }
                 }
             }
         }

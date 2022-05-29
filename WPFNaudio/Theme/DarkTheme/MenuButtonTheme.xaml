@@ -22,7 +22,7 @@
                                 
                             </Border>
 
-                            <materialDesign:PackIcon Kind="Home" 
+                            <materialDesign:PackIcon Kind="InformationVariant" 
                                                      Width="25" Height="25" 
                                                      Margin="35,0,0,0" 
                                                      Foreground="#C44C59"
