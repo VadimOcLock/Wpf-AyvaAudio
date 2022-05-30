@@ -27,7 +27,11 @@ namespace WPFNaudio.MVVM.ViewModels
         private bool CanCombineMp3CommandExecute(object p) => true;
         private void OnCombineMp3CommandExecuted(object p)
         {
+            var window = new CombineMp3View();
+            var vm = new CombineMp3ViewModel();
 
+            window.DataContext = vm;
+            if (window.ShowDialog() == true) { }
         }
     }
 }
