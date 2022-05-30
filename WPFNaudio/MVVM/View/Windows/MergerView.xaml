@@ -39,12 +39,14 @@
                     Style="{StaticResource MergeButton}"
                     Width="297" Height="360"
                     Margin="10,10,0,0"
-                    />
+                    Command="{Binding MergeMp3Command}"/>
+            
             <Button VerticalAlignment="Top"
                     Cursor="Hand"
                     Style="{StaticResource CombineButton}"
                     Width="297" Height="360"
-                    Margin="50,10,0,0"/>
+                    Margin="50,10,0,0"
+                    Command="{Binding CombineMp3Command}"/>
         </StackPanel>
     </Grid>
 </UserControl>
