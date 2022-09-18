@@ -54,6 +54,7 @@ namespace WPFNaudio.MVVM.ViewModels
                 _outputFile = Path.GetDirectoryName(InputFile) + @"\" + Path.GetFileNameWithoutExtension(InputFile) + "_cut.wav";
                 using (WaveFileReader waveFileReader = new WaveFileReader(InputFile))
                 {
+                    //waveFileReader.TotalTime.TotalSeconds
                     TrimWav(new TimeSpan(0, 0, cutStartTiming), new TimeSpan(0, 0, cutEndTiming), InputFile, OutputFile);
                 }
 

@@ -33,43 +33,7 @@
                             Style="{StaticResource TabButton}"
                             Background="#FFFF625B"
                         HorizontalAlignment="Right"/>
-
-                <StackPanel Grid.Row="1">
-                    <TextBlock Text="Текст 1"
-                               Foreground="White"
-                               Style="{StaticResource MontserratMediumFont}"
-                               FontSize="24"
-                               Margin="35,20,0,0"/>
-                    <TextBlock Text="{Binding InputFile}"
-                               Foreground="#ABABAB"
-                               Style="{StaticResource MontserratMediumFont}"
-                               FontSize="12"
-                               Margin="35,20,15,0"
-                               TextWrapping="Wrap"/>
-
-                    <TextBlock Text="Текст 2"
-                               Foreground="White"
-                               Style="{StaticResource MontserratMediumFont}"
-                               FontSize="24"
-                               Margin="35,50,0,0"/>
-                    <TextBlock Text="{Binding OutputFile}"
-                               Foreground="#ABABAB"
-                               Style="{StaticResource MontserratMediumFont}"
-                               FontSize="12"
-                               Margin="35,20,15,0"
-                               TextWrapping="Wrap"/>
-
-                </StackPanel>
-
-                <Canvas>
-                    <TextBlock Text="{Binding WavConvertResult}"
-                               HorizontalAlignment="Right"
-                               Foreground="#D78A44"
-                               Style="{StaticResource MontserratMediumFont}"
-                               FontSize="28"
-                               Canvas.Top="310"
-                               Canvas.Right="47"/>
-                </Canvas>
+                
             </Grid>
 
         </Border>
