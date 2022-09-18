@@ -40,6 +40,7 @@
     <Folder Include="MVVM\Model\" />
     <Folder Include="Data\" />
     <Folder Include="Services\" />
+    <Folder Include="Source\Screens\" />
   </ItemGroup>
 
   <ItemGroup>
